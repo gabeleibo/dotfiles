@@ -9,6 +9,7 @@ apt-get upgrade -y
 apt-get install -qq -y \
   docker.io \
   openssh-server \
+  mosh \
 
 echo "Creating directories"
 mkdir -p /root/code /root/secrets

@@ -2,9 +2,9 @@
 
 set -e
 
-if [ ! -d ~/config/dotfiles ]; then
+if [ ! -d ~/code/dotfiles ]; then
   echo "Cloning dotfiles"
-  cd ~/config
+  cd ~/code
   git clone --recursive https://github.com/gabeleibo/dotfiles.git
 fi
 
