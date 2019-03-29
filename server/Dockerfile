@@ -40,7 +40,7 @@ RUN mkdir /run/sshd
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 RUN sed 's/#Port 22/Port 3222/' -i /etc/ssh/sshd_config
 
-RUN mkdir ~/.ssh && curl -fsL https://github.com/fatih.keys > ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
+RUN mkdir ~/.ssh && curl -fsL https://s3.amazonaws.com/gabeleibo-public-keys/ssh.keys > ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
 
 ENV LANG="en_US.UTF-8"
 ENV LC_ALL="en_US.UTF-8"
