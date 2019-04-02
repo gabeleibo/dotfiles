@@ -43,6 +43,11 @@ RUN pip3 install docker-compose
 # Get Vim
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
 
+# Install ZSH
+RUN sed -i -e "s/bin\/ash/bin\/zsh/" /etc/passwd
+ENV SHELL /bin/zsh
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 #=====================================================
 #====================== Config =======================
 #=====================================================

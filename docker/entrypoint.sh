@@ -13,9 +13,11 @@ git remote set-url origin git@github.com:gabeleibo/dotfiles.git
 
 ln -s $(pwd)/vimrc ~/.vimrc
 ln -s $(pwd)/zshrc ~/.zshrc
+ln -s $(pwd)/zsh ~/.zsh
 ln -s $(pwd)/tmux.conf ~/.tmux.conf
 ln -s $(pwd)/gitconfig ~/.gitconfig
 ln -s $(pwd)/sshconfig ~/.ssh/config
+ln -s $(pwd)/bash_prompt ~/.bash_prompt
 
 
 /usr/sbin/sshd -D
