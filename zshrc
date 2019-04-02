@@ -1,5 +1,5 @@
 setopt auto_cd
-cdpath=($HOME/dev)
+cdpath=($HOME/code)
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -51,7 +51,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx adb python sudo docker zsh-completions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
