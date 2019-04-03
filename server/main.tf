@@ -21,31 +21,6 @@ resource "digitalocean_droplet" "dev" {
       timeout     = "2m"
     }
   }
-
-  provisioner "file" {
-    source      = "pull-secrets.sh"
-    destination = "/root/secrets/pull-secrets.sh"
-
-    connection {
-      type        = "ssh"
-      private_key = "${file("~/.ssh/id_rsa")}"
-      user        = "root"
-      timeout     = "2m"
-    }
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /root/secrets/pull-secrets.sh",
-    ]
-
-    connection {
-      type        = "ssh"
-      private_key = "${file("~/.ssh/id_rsa")}"
-      user        = "root"
-      timeout     = "2m"
-    }
-  }
 }
 
 resource "digitalocean_firewall" "dev" {
