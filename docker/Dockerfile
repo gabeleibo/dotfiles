@@ -39,7 +39,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install docker-compose
-RUN pip3 install keepercommander 
+RUN pip3 install keepercommander
 
 # Get Vim
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
