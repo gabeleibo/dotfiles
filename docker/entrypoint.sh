@@ -17,7 +17,5 @@ ln -sf $(pwd)/zsh ~/.zsh
 ln -sf $(pwd)/tmux.config ~/.tmux.conf
 ln -sf $(pwd)/gitconfig ~/.gitconfig
 ln -sf $(pwd)/sshconfig ~/.ssh/config
-ln -sf $(pwd)/bash_prompt ~/.bash_prompt
-
 
 /usr/sbin/sshd -D
