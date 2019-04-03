@@ -82,6 +82,10 @@ ENV TERM screen-256color
 EXPOSE 3222 60000-60010/udp
 
 WORKDIR /root
+
+COPY pull-secrets.sh /bin/pull-secrets.sh 
+RUN chmod +x /bin/pull-secrets.sh
+	
 COPY entrypoint.sh /bin/entrypoint.sh
 RUN chmod +x /bin/entrypoint.sh
 
