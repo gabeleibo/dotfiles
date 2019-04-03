@@ -20,8 +20,8 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	git-crypt \
 	locales \
 	mosh \
-  nodejs \
-  npm \
+	nodejs \
+  	npm \
 	openssh-server \
 	python \
 	python3 \
@@ -39,6 +39,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install docker-compose
+RUN pip3 install keepercommander 
 
 # Get Vim
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
