@@ -25,7 +25,7 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill dev
 ExecStartPre=-/usr/bin/docker rm dev
 ExecStartPre=/usr/bin/docker pull gabeleibo/dev:latest
-ExecStart=/usr/bin/docker run -h dev -e TZ=Europe/Berlin --net=host --rm -v /var/run/docker.sock:/var/run/docker.sock -v /root/code:/root/code -v /root/secrets:/root/secrets --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --privileged --name dev gabeleibo/dev:latest
+ExecStart=/usr/bin/docker run -h dev -e TZ=Europe/Berlin --net=host --rm -v /var/run/docker.sock:/var/run/docker.sock -v /root/code:/root/code --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --privileged --name dev gabeleibo/dev:latest
 [Install]
 WantedBy=multi-user.target
 EOF
