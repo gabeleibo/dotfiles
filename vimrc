@@ -1,12 +1,7 @@
-set runtimepath+=~/.vim_runtime
+set number
 
+" Disable auto collapse
+autocmd FileType * exec ":set nofen"
 
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
-
-try
-source ~/.vim_runtime/my_configs.vim
-catch
-endtry
+" Override ultimate vimrc
+set foldcolumn=0

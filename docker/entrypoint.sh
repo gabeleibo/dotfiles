@@ -11,7 +11,7 @@ fi
 cd ~/code/dotfiles
 git remote set-url origin git@github.com:gabeleibo/dotfiles.git
 
-ln -sf $(pwd)/vimrc ~/.vimrc
+ln -sf $(pwd)/vimrc ~/.vim_runtime/my_configs.vim
 ln -sf $(pwd)/zshrc ~/.zshrc
 ln -sf $(pwd)/zsh ~/.zsh
 ln -sf $(pwd)/tmux.config ~/.tmux.conf
