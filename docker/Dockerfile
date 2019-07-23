@@ -57,6 +57,9 @@ RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUS
 RUN git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 RUN sh ~/.vim_runtime/install_awesome_vimrc.sh
 
+# Vim Packages
+RUN git clone https://github.com/mattn/emmet-vim.git ~/.vim_runtime/my_plugins/emmet-vim
+
 #=====================================================
 #====================== Config =======================
 #=====================================================
