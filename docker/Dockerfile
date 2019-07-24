@@ -14,7 +14,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 #=====================================================
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
+  build-essential \
 	curl \
+  cmake \
 	docker.io \
 	git \
 	git-crypt \
@@ -25,6 +27,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	openssh-server \
 	python \
 	python3 \
+  python3-dev \
 	python3-pip \
 	python3-setuptools \
 	python3-venv \
@@ -57,8 +60,22 @@ RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUS
 RUN git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 RUN sh ~/.vim_runtime/install_awesome_vimrc.sh
 
-# Vim Packages
+# Add  Vim Packages
 RUN git clone https://github.com/mattn/emmet-vim.git ~/.vim_runtime/my_plugins/emmet-vim
+RUN git clone https://github.com/othree/javascript-libraries-syntax.vim.git ~/.vim_runtime/my_plugins/javascript-libraries-syntax.vim
+RUN git clone https://github.com/mhartington/oceanic-next.git ~/.vim_runtime/my_plugins/OceanicNext.vim
+RUN git clone https://github.com/elzr/vim-json.git ~/.vim_runtime/my_plugins/vim-json
+RUN git clone https://github.com/mxw/vim-jsx.git ~/.vim_runtime/my_plugins/vim-jsx
+RUN git clone https://github.com/prettier/vim-prettier.git ~/.vim_runtime/my_plugins/vim-prettier
+RUN git clone https://github.com/othree/yajs.vim.git ~/.vim_runtime/my_plugins/yajs.vim
+RUN git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim_runtime/my_plugins/YouCompleteMe
+RUN git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git ~/.vim_runtime/my_plugins/nerdtree-git-plugin 
+
+# Install YouCompleteMe
+WORKDIR root/.vim_runtime/my_plugins/YouCompleteMe
+RUN git submodule update --init --recursive
+RUN python3 install.py --tern-completer
+WORKDIR /
 
 #=====================================================
 #====================== Config =======================

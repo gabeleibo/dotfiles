@@ -35,4 +35,25 @@ sudo systemctl daemon-reload
 sudo systemctl enable dockerdev
 sudo systemctl start dockerdev
 
+
+echo "=> Setting up Twillio-Slack service"
+cat > twillioslack.service <<EOF
+[Unit]
+Description=twillioslack
+Requires=docker.service
+After=docker.service
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill twillioslack
+ExecStartPre=-/usr/bin/docker rm twillioslack
+ExecStartPre=/usr/bin/docker pull gabeleibo/twillioslack:latest
+ExecStart=/usr/bin/docker run -p 5842:3000 -e TZ=Europe/Berlin --name twillioslack gabeleibo/twillioslack:latest
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo mv twillioslack.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable twillioslack
+sudo systemctl start twillioslack
 echo "Done!"
