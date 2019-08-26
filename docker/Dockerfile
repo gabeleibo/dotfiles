@@ -43,6 +43,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 
 RUN pip3 install docker-compose
 RUN pip3 install keepercommander
+RUN npm install -g expo expo-cli
 
 # Get Vim
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
@@ -71,6 +72,8 @@ RUN git clone https://github.com/othree/yajs.vim.git ~/.vim_runtime/my_plugins/y
 RUN git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim_runtime/my_plugins/YouCompleteMe
 RUN git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git ~/.vim_runtime/my_plugins/nerdtree-git-plugin 
 
+# Install Prettier 
+RUN npm install -g prettier
 # Install YouCompleteMe
 WORKDIR root/.vim_runtime/my_plugins/YouCompleteMe
 RUN git submodule update --init --recursive
